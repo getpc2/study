@@ -28,10 +28,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          PWD=`pwd`
-          echo $PWD
-          LSALL=`ls -all`
-          echo $LSALL
-          echo "file ok"
-          CONTENTS=`wc start.sh`
-          echo $CONTENTS
+          LINE_COUNT=`wc start.sh | awk '{print $1}'`
+          let DIV=$LINE_COUNT%2
+          echo "Line = $LINE_COUNT, $DIV"
