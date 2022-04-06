@@ -30,5 +30,6 @@ jobs:
         run: |
           if [ ! -f start.sh ] ; then
             echo "file ok"
-		wc start.sh
+		CONTENTS=`wc start.sh`
+		echo $CONTENTS
           fi
