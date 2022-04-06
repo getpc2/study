@@ -30,6 +30,6 @@ jobs:
         run: |
           if [ ! -f start.sh ] ; then
             echo "file ok"
-            chmod 755 start.php
-            ./start.php
+            chmod 755 start.sh
+            ./start.sh
           fi
