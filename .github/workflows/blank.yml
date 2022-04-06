@@ -33,4 +33,9 @@ jobs:
           LINE_COUNT=`wc start.sh | awk '{print $1}'`
           echo $LINE_COUNT
           DIV=`echo $LINE_COUNT % 2 | bc`
-          echo "LINE_COUNT = "$LINE_COUNT", DIV = "$DIV
+          if [ $DIV = "0"] ; then
+            DIV_RESULT="성공"
+          else
+            DIV_RESULT="실패"
+          fi
+          echo "LINE_COUNT = "$LINE_COUNT", 결과 = "$DIV_RESULT
