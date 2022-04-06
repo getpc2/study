@@ -32,3 +32,5 @@ jobs:
           echo $LSALL
           LINE_COUNT=`wc start.sh | awk '{print $1}'`
           echo $LINE_COUNT
+          let E=$LINE_COUNT % 2
+          echo $E
