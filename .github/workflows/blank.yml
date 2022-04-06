@@ -30,4 +30,4 @@ jobs:
         run: |
           LINE_COUNT=`wc start.sh | awk '{print $1}'`
           let DIV=$LINE_COUNT%2
-          echo "Line = $LINE_COUNT, $DIV"
+          echo "Line = "$LINE_COUNT", "$DIV
