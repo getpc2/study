@@ -37,5 +37,6 @@ jobs:
             DIV_RESULT="성공"
           else
             DIV_RESULT="실패"
+            exit
           fi
           echo "LINE_COUNT = "$LINE_COUNT", 결과 = "$DIV_RESULT
