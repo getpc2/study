@@ -32,5 +32,5 @@ jobs:
           echo $LSALL
           LINE_COUNT=`wc start.sh | awk '{print $1}'`
           echo $LINE_COUNT
-          DIV=`echo '$LINE_COUNT % 2' | bc`
+          DIV=`echo $LINE_COUNT % 2 | bc`
           echo "LINE_COUNT = "$LINE_COUNT", DIV = "$DIV
