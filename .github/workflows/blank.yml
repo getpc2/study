@@ -33,8 +33,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo "::set-output name=all::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | xargs)"
-          echo "::set-output name=ts::$(git diff --name-only --diff-filter=ACMRT ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep .ts$ | xargs)"
+          echo ${{needs.changedfiles.outputs.ts}}ep .ts$ | xargs)"
           LSALL=`ls -all`
           echo $LSALL
           LINE_COUNT=`wc start.sh | awk '{print $1}'`
