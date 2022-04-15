@@ -28,5 +28,5 @@ resource "aws_security_group" "office_ssh" {
   name        = "office_ssh Security Group"
   description = "office_ssh Security Group"
 
-  tags { Name = "office_ssh Security Group" }
+  tags = { Name = "office_ssh Security Group" }
 }
