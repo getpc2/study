@@ -26,10 +26,10 @@ resource "aws_vpc" "jhh_test" {
 
 resource "aws_security_group" "office_ssh_sg" {
   vpc_id      = "${aws_vpc.jhhtest-vpc.id}"
-  name        = "office_ssh Security Group"
-  description = "office_ssh Security Group"
+  name        = "office_ssh_Security_Group"
+  description = "office_ssh_Security_Group"
 
-  tags = { Name = "office_ssh Security Group" }
+  tags = { Name = "office_ssh_Security_Group" }
 }
 
 resource "aws_security_group_rule" "office_ssh_rule" {
@@ -38,7 +38,7 @@ resource "aws_security_group_rule" "office_ssh_rule" {
   to_port           = 22
   protocol          = "TCP"
   cidr_blocks       = ["222.121.135.254/32"]
-  security_group_id = "${aws_security_group.office_ssh Security Group.id}"
+  security_group_id = "${aws_security_group.office_ssh_Security_Group.id}"
 
   lifecycle { create_before_destroy = true }
 }
@@ -46,7 +46,7 @@ resource "aws_security_group_rule" "office_ssh_rule" {
 resource "aws_instance" "app_server" {
   ami           = "ami-0f949cb787308f8a7"
   instance_type = "t2.micro"
-  vpc_security_group_ids = ["${aws_security_group.office_ssh Security Group.id}"]
+  vpc_security_group_ids = ["${aws_security_group.office_ssh_Security_Group.id}"]
 
   tags = {
     Name = "hello world 1"
