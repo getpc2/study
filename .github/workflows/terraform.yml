@@ -85,9 +85,6 @@ jobs:
         echo "init start"
         terraform init
         
-        echo "fmt start"
-        terraform fmt -check
-        
         echo "plan start"
         terraform plan -input=false
         
