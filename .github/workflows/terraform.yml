@@ -82,8 +82,15 @@ jobs:
         export AWS_REGION="ap-northeast-2"
         echo $AWS_ACCESS_KEY_ID"  "$AWS_SECRET_ACCESS_KEY"  "$AWS_DEFAULT_REGION
         
+        echo "init start"
         terraform init
+        
+        echo "fmt start"
         terraform fmt -check
+        
+        echo "plan start"
         terraform plan -input=false
+        
+        echo "apply start"
         terraform apply -auto-approve -input=false
 
