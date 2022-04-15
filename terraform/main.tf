@@ -60,7 +60,7 @@ resource "aws_instance" "app_server" {
   subnet_id = "${aws_subnet.jhhtest-subnet-pri.id}"
 
   tags = {
-    Name = "hello world 1"
+    Name = "hello world 2"
   }
 }
 
