@@ -14,24 +14,6 @@ provider "aws" {
   region  = "ap-northeast-2"
 }
 
-resource "aws_security_group" "office ssh" {
-  vpc_id = "vpc-0951fb531d20fe80a"
-  name = "office ssh"
-  description = "Terraform home ssh SG"
-
-  ingress {
-    description      = "office ssh"
-    from_port = 22
-    to_port = 22
-    protocol = "tcp"
-    cidr_blocks = ["222.121.135.254/32"]
-  }
-
-  tags = {
-    Name = "office ssh"
-  }
-}
-
 resource "aws_instance" "app_server" {
   ami           = "ami-0f949cb787308f8a7"
   instance_type = "t2.micro"
