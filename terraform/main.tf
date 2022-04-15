@@ -22,3 +22,11 @@ resource "aws_instance" "app_server" {
     Name = "hello world 1"
   }
 }
+
+resource "aws_security_group" "office_ssh" {
+  vpc_id      = "vpc-0951fb531d20fe80a"
+  name        = "office_ssh Security Group"
+  description = "office_ssh Security Group"
+
+  tags { Name = "office_ssh Security Group" }
+}
