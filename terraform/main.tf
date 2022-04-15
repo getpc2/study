@@ -24,6 +24,16 @@ resource "aws_vpc" "jhhtest-vpc" {
   }
 }
 
+resource "aws_subnet" "jhhtest-subnet-pri-2a-1" {
+  vpc_id                  = aws_vpc.jhhtest-vpc.id
+  cidr_block              = "50.50.1.0/24"
+  map_public_ip_on_launch = false
+  availability_zone       = "ap-northeast-2a"
+  tags = {
+   Name = "jhhtest-subnet-pri"
+  }
+}
+
 resource "aws_security_group" "office_ssh_Security_Group" {
   vpc_id      = "${aws_vpc.jhhtest-vpc.id}"
   name        = "office_ssh_Security_Group"
@@ -47,6 +57,7 @@ resource "aws_instance" "app_server" {
   ami           = "ami-0f949cb787308f8a7"
   instance_type = "t2.micro"
   vpc_security_group_ids = ["${aws_security_group.office_ssh_Security_Group.id}"]
+  subnet_id = "${aws_subnet.jhhtest-subnet-pri.id}"
 
   tags = {
     Name = "hello world 1"
