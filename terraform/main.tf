@@ -29,7 +29,6 @@ resource "aws_security_group" "office ssh" {
 resource "aws_instance" "app_server" {
   ami           = "ami-0f949cb787308f8a7"
   instance_type = "t2.micro"
-#  vpc_security_group_ids = [aws_security_group.basic_security.id]
 
   tags = {
     Name = "hello world 1"
