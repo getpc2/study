@@ -14,7 +14,7 @@ provider "aws" {
   region  = "ap-northeast-2"
 }
 
-resource "aws_vpc" "jhh_test" {
+resource "aws_vpc" "jhhtest-vpc" {
   cidr_block           = "50.50.0.0/16"
   instance_tenancy     = "default"
   enable_dns_support   = true
@@ -24,7 +24,7 @@ resource "aws_vpc" "jhh_test" {
   }
 }
 
-resource "aws_security_group" "office_ssh_sg" {
+resource "aws_security_group" "office_ssh_Security_Group" {
   vpc_id      = "${aws_vpc.jhhtest-vpc.id}"
   name        = "office_ssh_Security_Group"
   description = "office_ssh_Security_Group"
