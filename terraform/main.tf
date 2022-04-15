@@ -17,7 +17,6 @@ provider "aws" {
 resource "aws_instance" "app_server" {
   ami           = "ami-0f949cb787308f8a7"
   instance_type = "t2.micro"
-  name = "getpc2 testserver 1"
 
   tags = {
     Name = "hello world 1"
