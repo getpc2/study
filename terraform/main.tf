@@ -23,10 +23,21 @@ resource "aws_instance" "app_server" {
   }
 }
 
-resource "aws_security_group" "office_ssh" {
+resource "aws_security_group" "office_ssh_sg" {
   vpc_id      = "vpc-0951fb531d20fe80a"
   name        = "office_ssh Security Group"
   description = "office_ssh Security Group"
 
   tags = { Name = "office_ssh Security Group" }
+}
+
+resource "aws_security_group_rule" "office_ssh_rule" {
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "TCP"
+  cidr_blocks       = ["0.0.0.0/0"]
+  security_group_id = "sg-0f842885e329a050b"
+
+  lifecycle = { create_before_destroy = true }
 }
