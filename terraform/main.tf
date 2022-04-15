@@ -36,7 +36,7 @@ resource "aws_security_group_rule" "office_ssh_rule" {
   from_port         = 22
   to_port           = 22
   protocol          = "TCP"
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["222.121.135.254/32"]
   security_group_id = "sg-0f842885e329a050b"
 
   lifecycle = { create_before_destroy = true }
