@@ -79,10 +79,13 @@ jobs:
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
         cd terraform
-        export AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID"
-        export AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY"
+        export AWS_ACCESS_KEY_ID="$env:AWS_ACCESS_KEY_ID"
+        export AWS_SECRET_ACCESS_KEY="$env:AWS_SECRET_ACCESS_KEY"
         export AWS_DEFAULT_REGION="ap-northeast-2"
         export AWS_REGION="ap-northeast-2"
         echo $AWS_ACCESS_KEY_ID" "$AWS_SECRET_ACCESS_KEY" "$AWS_REGION
