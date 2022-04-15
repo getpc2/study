@@ -120,6 +120,7 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       if: github.ref == 'refs/heads/master' && github.event_name == 'push'
       run: |
+        cd terraform
         export AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID"
         export AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY"
         export AWS_DEFAULT_REGION="ap-northeast-2"
